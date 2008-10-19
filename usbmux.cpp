@@ -233,8 +233,6 @@ namespace usbmux {
          new_session->socket(),
          boost::bind(&proxy::handle_accept, this, new_session, boost::asio::placeholders::error)
       );
-      
-      std::cout << "Foooo" << std::endl;
    }
    
    void proxy::handle_accept(proxy_session_ptr session, const boost::system::error_code& error)
