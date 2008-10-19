@@ -1,0 +1,53 @@
+
+*What is this*
+
+The usbmux-proxy is a simple command line tool to connect local TCP
+ports on your Mac to ports on an iPhone or iPod Touch device over a
+USB connection.
+
+The usbmux protocol is used by for example iTunes to connect to
+daemons running on the iPhone or iPod Touch.
+
+*Building*
+
+The following assumptions are made:
+
+ * OS X 10.5.x
+ * Recent Developer Tools installed
+ * Boost 1.36 installed under /usr/local
+
+Boost can be downloaded from http://www.boost.org.
+
+Build the usbmux-proxy by simply invoking 'make'.
+
+*Example*
+
+If you for example run a network daemon on port 22 on your iPhone then
+you can make this network daemon available locally on your Mac on port
+22 by running usbmux-proxy like this:
+
+  ./usbmux-proxy 22:2222
+
+Now by connecting to localhost:2222 on your mac, you actually connect
+to port 22 on your iPhone or iPod Touch device.
+
+  % ssh -p 2222 root@localhost
+  iPhone:~ root# uptime
+
+*Possible Uses*
+
+If you develop official software for the iPhone then this code can be
+used to have a Mac-side of your program connect to your iPhone
+application. Although iPhone software runs in a sandbox, you are
+allowed to start network servers on non-priviledged ports. This is a
+great way to transfer data between your App and your Mac.
+
+*Please note*
+
+This project is a complete hack. It makes some assumptions of the
+undocumented usbmux protocol based on wiretaps and reverse engineering
+done by other people. It works great with iTunes 8.0.x and iPhone 2.1
+but it could possibly break when either of those are upgraded.
+
+It works great for me though, which is good enough.
+
