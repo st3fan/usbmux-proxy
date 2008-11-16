@@ -24,7 +24,7 @@ Build the usbmux-proxy by simply invoking 'make'.
 
 If you for example run a network daemon on port 22 on your iPhone then
 you can make this network daemon available locally on your Mac on port
-22 by running usbmux-proxy like this:
+2222 by running usbmux-proxy like this:
 
   ./usbmux-proxy 22:2222
 
